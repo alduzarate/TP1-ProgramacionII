@@ -32,7 +32,7 @@ def generar():
 	tab = datos[0]
 	dim = datos[1]
 
-	mostrar ( tab , dim )
+	mostrar ( tab)
 
 def generarTablero( maxPalabra ):
 	"""El tablero esta representado con una lista de tuplas en donde la primera posicion
@@ -64,14 +64,11 @@ def rellenar():
 	print("rellenarfunction")
 
 
-def mostrar( tablero , dimension ):
+def mostrar( tablero ):
 
-	print (tablero)
+	valores = [tupla[0] for tupla in tablero]
+	print (valores)
 
-#	for i in tablero:
-#		print ( " " , tablero[i][0] , end = '')
-#		if i[0] % dimension == dimension - 1:
-#			print ()
 
 def buscar():
 	print("buscarfunction")
