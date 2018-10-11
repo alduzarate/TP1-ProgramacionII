@@ -66,8 +66,7 @@ def rellenar():
 
 def mostrar( tablero ):
 
-	valores = [tupla[0] for tupla in tablero]
-	print (valores)
+	print ( [tupla[0] for tupla in tablero] )
 
 
 def buscar():
