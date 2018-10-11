@@ -23,23 +23,44 @@ Menu:
 
 def generar():
 	palabras = archivo()
-	#print (palabras)
 	
 	maxPalabra = len ( max ( palabras , key=len ) )
 	cantPalabras = len ( palabras )
 	
 	datos = generarTablero ( maxPalabra )
-	tab = datos[0]
-	dim = datos[1]
+	tablero = datos[0]
+	dimension = datos[1]
 
-	mostrar ( tab)
+	temp = palabras [0]
+	tempextra = agregarPalabra( tablero , palabras[0] )
+	for palabra in range ( 1 , cantPalabras ):
+		verificarCoincidencia( tablero , temp , palabras[palabra] , tempextra[0] , tempextra[1] )
+		temp = palabras[palabra]
+
+def verificarCoincidencia( tablero , palabrai , palabraj , posicion , direccion):
+	for i  in range (len (palabrai) - 1):
+		for j in range (len (palabraj) -1):
+			if palabrai[i] == palabraj[j]:
+				agregarPalabraCruzado( tablero , posicion , direccion , palabraj , i , j )
+	agregarPalabra( tablero , palabraj )
+
+def agregarPalabra( tablero , palabraj ):
+	print("agregarPalabrafunction")
+	#devuelve posicion y direccion de la ultima palabra agregada (pongo tuplas de prueba
+	#para que no se rompa el programa)
+	return(1,0)
+
+def agregarPalabraCruzado( tablero , posicion , direccion , palabraj , i , j ):
+	print("agregarPalabraCruzadofunction")
+	#devuelve posicion y direccion de la ultima palabra agregada (pongo tuplas de prueba
+	#para que no se rompa el programa)
+	return(0,1)
 
 def generarTablero( maxPalabra ):
 	"""El tablero esta representado con una lista de tuplas en donde la primera posicion
 	es un numero que representa la posicion y el segundo un numero que representa el valor
 	en esa posicion"""
 	dimension = random.randint ( 1.5 * maxPalabra , 2 * maxPalabra)
-	print (dimension)
 	tablero = []
 
 	for i in range ( pow ( dimension , 2 ) ):
@@ -57,9 +78,6 @@ def archivo():
 	palabras = archivo.readlines()
 	return palabras
 
-
-def insertar():
-	print("insertarfunction")
 def rellenar():
 	print("rellenarfunction")
 
